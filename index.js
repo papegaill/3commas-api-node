@@ -4,13 +4,14 @@ const crypto = require('crypto')
 const fetch = require('node-fetch')
 
 const API_URL = 'https://api.3commas.io'
+const FORCED_MODE = 'real'
 
 class threeCommasAPI {
   constructor(opts = {}) {
     this._url = opts.url || API_URL
     this._apiKey = opts.apiKey || ''
     this._apiSecret = opts.apiSecret || ''
-    this._forcedMode = opts.forcedMode || ''
+    this._forcedMode = opts.forcedMode || FORCED_MODE
   }
 
   generateSignature (requestUri, reqData) {
